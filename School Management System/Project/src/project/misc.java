@@ -1,0 +1,1676 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package project;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import static project.things4.PASS;
+import static project.things4.PATH;
+import static project.things4.PLACE;
+import static project.things4.UNAME;
+
+/**
+ *
+ * @author hp
+ */
+public class misc extends javax.swing.JInternalFrame implements things4{
+
+    /**
+     * Creates new form misc
+     */
+    public misc() {
+        initComponents();
+        
+        try
+ {
+ Connection myconnection;
+ 
+ myconnection=DriverManager.getConnection(PATH+PLACE,UNAME,PASS);
+ 
+ try
+ {
+ String a="select * from studenttable";
+ PreparedStatement mystatement=myconnection.prepareStatement(a);
+ 
+ ResultSet myresult=mystatement.executeQuery();
+ DefaultTableModel mymodel=(DefaultTableModel) personal.getModel();
+ String adm,name,father,phone,dob;
+ if(myresult.next())
+ {
+ do
+ {
+ adm=myresult.getString("admno");
+ name=myresult.getString("fname");
+ father=myresult.getString("fathername");
+ phone=myresult.getString("phone");
+ dob=myresult.getString("dob");
+ 
+ mymodel.addRow(new String[]{adm,name,father,phone,dob});
+ }
+ while(myresult.next());
+ }
+ 
+ }
+ catch(Exception e)
+ {
+ JOptionPane.showMessageDialog(rootPane, "Error in Query " + e.getMessage());
+ }
+ finally
+ {
+ myconnection.close();
+ }
+ 
+ 
+ }
+ catch(Exception e)
+ {
+ JOptionPane.showMessageDialog(rootPane, "Error in Connection " + e.getMessage());
+ }
+        
+        
+        
+        
+         try
+ {
+ Connection myconnection;
+ 
+ myconnection=DriverManager.getConnection(PATH+PLACE,UNAME,PASS);
+ 
+ try
+ {
+ String a="select * from studenttable";
+ PreparedStatement mystatement=myconnection.prepareStatement(a);
+ 
+ ResultSet myresult=mystatement.executeQuery();
+ 
+ DefaultTableModel mymodel1=(DefaultTableModel) school.getModel();
+ String adm,name,cl,sect;
+   
+ if(myresult.next())
+ {
+ do
+ {
+ adm=myresult.getString("admno");
+ name=myresult.getString("fname");
+ cl=myresult.getString("class");
+ sect=myresult.getString("section");
+mymodel1.addRow(new String[]{adm,name,cl,sect});
+ }
+ while(myresult.next());
+ }
+ 
+ }
+ catch(Exception e)
+ {
+ JOptionPane.showMessageDialog(rootPane, "Error in Query " + e.getMessage());
+ }
+ finally
+ {
+ myconnection.close();
+ }
+ 
+ 
+ }
+ catch(Exception e)
+ {
+ JOptionPane.showMessageDialog(rootPane, "Error in Connection " + e.getMessage());
+ }
+  
+ 
+         try
+ {
+ Connection myconnection;
+ 
+ myconnection=DriverManager.getConnection(PATH+PLACE,UNAME,PASS);
+ 
+ try
+ {
+ String a="select * from stafftable";
+ PreparedStatement mystatement=myconnection.prepareStatement(a);
+ 
+ ResultSet myresult=mystatement.executeQuery();
+ DefaultTableModel mymodel=(DefaultTableModel) personal1.getModel();
+ String name,qualf,phone,gender,dob;
+ if(myresult.next())
+ {
+ do
+ {
+ name=myresult.getString("fname");
+ qualf=myresult.getString("qualf");
+ phone=myresult.getString("phone");
+ gender=myresult.getString("gender");
+ dob=myresult.getString("dob");
+ 
+ mymodel.addRow(new String[]{name,qualf,phone,gender,dob});
+ }
+ while(myresult.next());
+ }
+ 
+ }
+ catch(Exception e)
+ {
+ JOptionPane.showMessageDialog(rootPane, "Error in Query " + e.getMessage());
+ }
+ finally
+ {
+ myconnection.close();
+ }
+ 
+ 
+ }
+ catch(Exception e)
+ {
+ JOptionPane.showMessageDialog(rootPane, "Error in Connection " + e.getMessage());
+ }
+ 
+         
+         try
+ {
+ Connection myconnection;
+ 
+ myconnection=DriverManager.getConnection(PATH+PLACE,UNAME,PASS);
+ 
+ try
+ {
+ String b="select * from stafftable";
+ PreparedStatement mystatement=myconnection.prepareStatement(b);
+ 
+ ResultSet myresult=mystatement.executeQuery();
+ DefaultTableModel mymodel=(DefaultTableModel) school1.getModel();
+ String name,cls,sub,sal;
+ if(myresult.next())
+ {
+ do
+ {
+ name=myresult.getString("fname");
+ cls=myresult.getString("class");
+
+ sub=myresult.getString("subject");
+ sal=myresult.getString("salary");
+ 
+ mymodel.addRow(new String[]{name,cls,sub,sal});
+ }
+ while(myresult.next());
+ }
+ 
+ }
+ catch(Exception e)
+ {
+ JOptionPane.showMessageDialog(rootPane, "Error in Query " + e.getMessage());
+ }
+ finally
+ {
+ myconnection.close();
+ }
+ 
+ 
+ }
+ catch(Exception e)
+ {
+ JOptionPane.showMessageDialog(rootPane, "Error in Connection " + e.getMessage());
+ }
+ 
+         
+         
+         
+         
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
+        searchbox = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel6 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        personal = new javax.swing.JTable();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        school = new javax.swing.JTable();
+        nbtn = new javax.swing.JRadioButton();
+        adbtn = new javax.swing.JRadioButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        bday = new com.toedter.calendar.JDateChooser();
+        jLabel3 = new javax.swing.JLabel();
+        bday1 = new com.toedter.calendar.JDateChooser();
+        jButton11 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
+        namebox = new javax.swing.JTextField();
+        jButton7 = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JSeparator();
+        jTabbedPane3 = new javax.swing.JTabbedPane();
+        jPanel9 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        personal1 = new javax.swing.JTable();
+        jPanel10 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        school1 = new javax.swing.JTable();
+        jLabel6 = new javax.swing.JLabel();
+        bday2 = new com.toedter.calendar.JDateChooser();
+        jLabel7 = new javax.swing.JLabel();
+        bday3 = new com.toedter.calendar.JDateChooser();
+        jButton12 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        classbox = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        sectionbox = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        subjectbox = new javax.swing.JTextField();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+
+        setClosable(true);
+        setIconifiable(true);
+        setTitle("Misc");
+
+        jLabel25.setText("Search by");
+
+        jButton6.setText("Search");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        personal.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Admission No.", "Name", "Father's Name", "Phone No.", "DOB"
+            }
+        ));
+        jScrollPane2.setViewportView(personal);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 953, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane2.addTab("Personal Info", jPanel6);
+
+        school.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Admission No.", "Name", "Class", "Section"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(school);
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 953, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane2.addTab("School Info", jPanel7);
+
+        buttonGroup1.add(nbtn);
+        nbtn.setText("Name");
+        nbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nbtnActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(adbtn);
+        adbtn.setText("Admission Number");
+
+        jButton2.setText("Delete Row");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText(" Birthday's Between");
+
+        jLabel3.setText("&");
+
+        jButton11.setText("Search");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator2)
+                    .addComponent(jTabbedPane2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel25)
+                                .addGap(18, 18, 18)
+                                .addComponent(nbtn)
+                                .addGap(10, 10, 10)
+                                .addComponent(adbtn))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(searchbox, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(bday, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(bday1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nbtn)
+                        .addComponent(adbtn))
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(searchbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton6)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(bday, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(bday1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton11))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jTabbedPane1.addTab("Student Data", jPanel1);
+
+        jLabel26.setText("Search by Name");
+
+        jButton7.setText("Search");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        personal1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "Qualification", "Phone No.", "Gender", "DOB"
+            }
+        ));
+        jScrollPane4.setViewportView(personal1);
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 943, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
+        );
+
+        jTabbedPane3.addTab("Personal Info", jPanel9);
+
+        school1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "Class", "Subject", "Salary"
+            }
+        ));
+        jScrollPane5.setViewportView(school1);
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 943, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane3.addTab("School Info", jPanel10);
+
+        jLabel6.setText(" Birthday's Between");
+
+        jLabel7.setText("&");
+
+        jButton12.setText("Search");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Delete Row");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator3)
+                    .addComponent(jTabbedPane3)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel26)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(namebox, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(bday2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(bday3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(namebox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton7))
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(bday2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bday3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton12))
+                .addGap(24, 24, 24)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 998, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 495, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Staff Data", jPanel2);
+
+        jLabel1.setText("Class");
+
+        classbox.setText("\n");
+
+        jButton1.setText("Save");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Delete");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton4))
+                    .addComponent(classbox))
+                .addContainerGap(819, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(classbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton4))
+                .addContainerGap(430, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Add Class", jPanel3);
+
+        jLabel4.setText("Section");
+
+        sectionbox.setText("\n");
+
+        jButton5.setText("Save");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton8.setText("Delete");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jButton5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton8))
+                    .addComponent(sectionbox))
+                .addContainerGap(809, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(sectionbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton5)
+                    .addComponent(jButton8))
+                .addContainerGap(430, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Add Section", jPanel4);
+
+        jLabel5.setText("Subject");
+
+        subjectbox.setText("\n");
+
+        jButton9.setText("Save");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jButton10.setText("Delete");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jButton9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton10))
+                    .addComponent(subjectbox))
+                .addContainerGap(808, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(subjectbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton9)
+                    .addComponent(jButton10))
+                .addContainerGap(430, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Add Subject", jPanel5);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+ if(nbtn.isSelected()){         try
+{
+Connection myconnection;
+
+myconnection=DriverManager.getConnection(PATH+PLACE,UNAME,PASS);
+try
+{
+String a="select * from studenttable where fname=?";
+PreparedStatement mystatement=myconnection.prepareStatement(a);
+mystatement.setString(1, searchbox.getText());
+DefaultTableModel mymodel=(DefaultTableModel) personal.getModel();
+ResultSet myresult=mystatement.executeQuery();
+mymodel.setRowCount(0);
+if(myresult.next()) //rest code is same as of list of students
+{
+getContentPane().revalidate();
+do
+{
+    String adm,name,father,phone,dob;
+ adm=myresult.getString("admno");
+ name=myresult.getString("fname");
+ father=myresult.getString("fathername");
+ phone=myresult.getString("phone");
+ dob=myresult.getString("dob");
+mymodel.addRow(new Object[]{adm,name,father,phone,dob});
+
+
+}
+while(myresult.next());
+
+}
+else
+{
+JOptionPane.showMessageDialog(rootPane, "No Records Exist");
+}
+
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Query " + e.getMessage());
+}
+finally
+{
+myconnection.close();
+}
+
+
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Connection " + e.getMessage());
+}
+ }         
+ 
+ 
+ 
+ 
+if(adbtn.isSelected()){
+          try
+{
+Connection myconnection;
+
+myconnection=DriverManager.getConnection(PATH+PLACE,UNAME,PASS);
+try
+{
+String a="select * from studenttable where admno=?";
+PreparedStatement mystatement=myconnection.prepareStatement(a);
+mystatement.setString(1, searchbox.getText());
+DefaultTableModel mymodel=(DefaultTableModel) personal.getModel();
+ResultSet myresult=mystatement.executeQuery();
+mymodel.setRowCount(0);
+if(myresult.next()) //rest code is same as of list of students
+{
+getContentPane().revalidate();
+do
+{
+    String adm,name,father,phone,dob;
+ adm=myresult.getString("admno");
+ name=myresult.getString("fname");
+ father=myresult.getString("fathername");
+ phone=myresult.getString("phone");
+ dob=myresult.getString("dob");
+mymodel.addRow(new Object[]{adm,name,father,phone,dob});
+
+
+}
+while(myresult.next());
+
+}
+else
+{
+JOptionPane.showMessageDialog(rootPane, "No Records Exist");
+}
+
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Query " + e.getMessage());
+}
+finally
+{
+myconnection.close();
+}
+
+
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Connection " + e.getMessage());
+}
+ }
+          
+          
+          
+        
+          if(nbtn.isSelected()){         try
+{
+Connection myconnection;
+
+myconnection=DriverManager.getConnection(PATH+PLACE,UNAME,PASS);
+try
+{
+String a="select * from studenttable where fname=?";
+PreparedStatement mystatement=myconnection.prepareStatement(a);
+mystatement.setString(1, searchbox.getText());
+DefaultTableModel mymodel=(DefaultTableModel) school.getModel();
+ResultSet myresult=mystatement.executeQuery();
+mymodel.setRowCount(0);
+if(myresult.next()) //rest code is same as of list of students
+{
+getContentPane().revalidate();
+do
+{
+    String adm,name,cl,sect;
+ 
+ adm=myresult.getString("admno");
+ name=myresult.getString("fname");
+ cl=myresult.getString("class");
+ sect=myresult.getString("section");
+mymodel.addRow(new String[]{adm,name,cl,sect});
+
+}
+while(myresult.next());
+
+}
+else
+{
+JOptionPane.showMessageDialog(rootPane, "No Records Exist");
+}
+
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Query " + e.getMessage());
+}
+finally
+{
+myconnection.close();
+}
+
+
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Connection " + e.getMessage());
+}
+ }         
+ 
+ 
+ 
+ 
+if(adbtn.isSelected()){
+          try
+{
+Connection myconnection;
+
+myconnection=DriverManager.getConnection(PATH+PLACE,UNAME,PASS);
+try
+{
+String a="select * from studenttable where admno=?";
+PreparedStatement mystatement=myconnection.prepareStatement(a);
+mystatement.setString(1, searchbox.getText());
+DefaultTableModel mymodel=(DefaultTableModel) school.getModel();
+ResultSet myresult=mystatement.executeQuery();
+mymodel.setRowCount(0);
+if(myresult.next()) //rest code is same as of list of students
+{
+getContentPane().revalidate();
+do
+{
+   String adm,name,cl,sect;
+ 
+ adm=myresult.getString("admno");
+ name=myresult.getString("fname");
+ cl=myresult.getString("class");
+ sect=myresult.getString("section");
+mymodel.addRow(new String[]{adm,name,cl,sect});
+
+
+}
+while(myresult.next());
+
+}
+else
+{
+JOptionPane.showMessageDialog(rootPane, "No Records Exist");
+}
+
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Query " + e.getMessage());
+}
+finally
+{
+myconnection.close();
+}
+
+
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Connection " + e.getMessage());
+}
+ }
+          
+          
+          
+          
+          
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        try
+{
+Connection myconnection;
+
+myconnection=DriverManager.getConnection(PATH+PLACE,UNAME,PASS);
+
+try
+{
+String a="select * from stafftable where fname=?";
+PreparedStatement mystatement=myconnection.prepareStatement(a);
+mystatement.setString(1, namebox.getText());
+DefaultTableModel mymodel=(DefaultTableModel) personal1.getModel();
+ResultSet myresult=mystatement.executeQuery();
+mymodel.setRowCount(0);
+if(myresult.next()) //rest code is same as of list of students
+{
+getContentPane().revalidate();
+do
+{
+  String  name,qualf,phone,gender,dob;
+name=myresult.getString("fname");
+ qualf=myresult.getString("qualf");
+ phone=myresult.getString("phone");
+ gender=myresult.getString("gender");
+ dob=myresult.getString("dob");
+mymodel.addRow(new Object[]{name,qualf,phone,gender,dob});
+
+
+}
+while(myresult.next());
+
+}
+else
+{
+JOptionPane.showMessageDialog(rootPane, "No Records Exist");
+}
+
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Query " + e.getMessage());
+}
+finally
+{
+myconnection.close();
+}
+
+
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Connection " + e.getMessage());
+}
+        
+        
+        
+        
+        
+         try
+{
+Connection myconnection;
+
+myconnection=DriverManager.getConnection(PATH+PLACE,UNAME,PASS);
+
+try
+{
+String a="select * from stafftable where fname=?";
+PreparedStatement mystatement=myconnection.prepareStatement(a);
+mystatement.setString(1, namebox.getText());
+DefaultTableModel mymodel=(DefaultTableModel) school1.getModel();
+ResultSet myresult=mystatement.executeQuery();
+mymodel.setRowCount(0);
+if(myresult.next()) //rest code is same as of list of students
+{
+getContentPane().revalidate();
+do
+{
+    String name,cls,sub,sal;
+  name=myresult.getString("fname");
+ cls=myresult.getString("class");
+ sub=myresult.getString("subject");
+ sal=myresult.getString("salary");
+mymodel.addRow(new Object[]{name,cls,sub,sal});
+
+
+}
+while(myresult.next());
+
+}
+else
+{
+JOptionPane.showMessageDialog(rootPane, "No Records Exist");
+}
+
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Query " + e.getMessage());
+}
+finally
+{
+myconnection.close();
+}
+
+
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Connection " + e.getMessage());
+}
+       
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       try{
+        Connection myconnection;
+               myconnection=DriverManager.getConnection(PATH+PLACE,UNAME,PASS);
+        try
+        {
+            String a="insert into classtable values(?)";
+            PreparedStatement mystatement= myconnection.prepareStatement(a);
+            mystatement.setString(1, classbox.getText());
+            
+
+            if(mystatement.executeUpdate()>0)
+            {
+                JOptionPane.showMessageDialog(rootPane, "Class Added Successfully");
+            }
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(rootPane, "Query Error due to " + e.getMessage());
+        }
+        finally
+        {
+            myconnection.close();
+        } } catch (SQLException ex) {
+               Logger.getLogger(misc.class.getName()).log(Level.SEVERE, null, ex);
+           }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        try{
+        Connection myconnection;
+               myconnection=DriverManager.getConnection(PATH+PLACE,UNAME,PASS);
+        try
+        {
+            String a="insert into sectiontable values(?)";
+            PreparedStatement mystatement= myconnection.prepareStatement(a);
+            mystatement.setString(1, sectionbox.getText());
+            
+
+            if(mystatement.executeUpdate()>0)
+            {
+                JOptionPane.showMessageDialog(rootPane, "Section Added Successfully");
+            }
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(rootPane, "Query Error due to " + e.getMessage());
+        }
+        finally
+        {
+            myconnection.close();
+        } } catch (SQLException ex) {
+               Logger.getLogger(misc.class.getName()).log(Level.SEVERE, null, ex);
+           }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+       try{
+        Connection myconnection;
+               myconnection=DriverManager.getConnection(PATH+PLACE,UNAME,PASS);
+        try
+        {
+            String a="insert into subjecttable values(?)";
+            PreparedStatement mystatement= myconnection.prepareStatement(a);
+            mystatement.setString(1, subjectbox.getText());
+            
+
+            if(mystatement.executeUpdate()>0)
+            {
+                JOptionPane.showMessageDialog(rootPane, "Subject Added Successfully");
+            }
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(rootPane, "Query Error due to " + e.getMessage());
+        }
+        finally
+        {
+            myconnection.close();
+        } } catch (SQLException ex) {
+               Logger.getLogger(misc.class.getName()).log(Level.SEVERE, null, ex);
+           }
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        Connection myconnection;
+
+try
+{
+myconnection=DriverManager.getConnection(PATH+PLACE,UNAME,PASS);
+try
+{
+String a="delete from classtable where class=?";
+PreparedStatement mystatement=myconnection.prepareStatement(a);
+
+mystatement.setString(1, classbox.getText());
+
+int answer=JOptionPane.showConfirmDialog(rootPane, "Do you really want to delete?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+
+if(answer==JOptionPane.YES_OPTION)
+{
+if(mystatement.executeUpdate()==1)
+{
+JOptionPane.showMessageDialog(rootPane, "Class Deleted Successfully ");
+classbox.setText("");
+
+}
+else
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Saving Successfully ");
+}
+}
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in query " + e.getMessage());
+}
+finally
+{
+myconnection.close();
+}
+
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Connection " + e.getMessage());
+}
+
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+         Connection myconnection;
+
+try
+{
+myconnection=DriverManager.getConnection(PATH+PLACE,UNAME,PASS);
+try
+{
+String a="delete from sectiontable where section=?";
+PreparedStatement mystatement=myconnection.prepareStatement(a);
+
+mystatement.setString(1, sectionbox.getText());
+
+int answer=JOptionPane.showConfirmDialog(rootPane, "Do you really want to delete?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+
+if(answer==JOptionPane.YES_OPTION)
+{
+if(mystatement.executeUpdate()==1)
+{
+JOptionPane.showMessageDialog(rootPane, "Section Deleted Successfully ");
+sectionbox.setText("");
+
+}
+else
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Saving Successfully ");
+}
+}
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in query " + e.getMessage());
+}
+finally
+{
+myconnection.close();
+}
+
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Connection " + e.getMessage());
+}
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+         Connection myconnection;
+
+try
+{
+myconnection=DriverManager.getConnection(PATH+PLACE,UNAME,PASS);
+try
+{
+String a="delete from subjecttable where subject=?";
+PreparedStatement mystatement=myconnection.prepareStatement(a);
+
+mystatement.setString(1, subjectbox.getText());
+
+int answer=JOptionPane.showConfirmDialog(rootPane, "Do you really want to delete?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+
+if(answer==JOptionPane.YES_OPTION)
+{
+if(mystatement.executeUpdate()==1)
+{
+JOptionPane.showMessageDialog(rootPane, "Subject Deleted Successfully ");
+subjectbox.setText("");
+
+}
+else
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Saving Successfully ");
+}
+}
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in query " + e.getMessage());
+}
+finally
+{
+myconnection.close();
+}
+
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Connection " + e.getMessage());
+}
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void nbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nbtnActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+       try
+{
+Connection myconnection;
+myconnection=DriverManager.getConnection(PATH+PLACE,UNAME,PASS);
+try
+{
+
+String q="select * from studenttable where dob between ? and ?";
+PreparedStatement mystatement=myconnection.prepareStatement(q);
+
+mystatement.setObject(1, bday.getDate());
+mystatement.setObject(2, bday1.getDate());
+
+ResultSet myresult=mystatement.executeQuery(); 
+DefaultTableModel mymodel=(DefaultTableModel) personal.getModel();
+mymodel.setRowCount(0); //to clear old data
+if(myresult.next()) //rest code is same as of list of students
+{
+getContentPane().revalidate();
+
+do
+{
+String adm,name,father,phone,dob;
+ adm=myresult.getString("admno");
+ name=myresult.getString("fname");
+ father=myresult.getString("fathername");//doubt error here change variables
+ phone=myresult.getString("phone");
+ dob=myresult.getString("dob");
+mymodel.addRow(new Object[]{adm,name,father,phone,dob});
+
+
+}
+while(myresult.next());
+}
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error In Query " + e.getMessage());
+}
+finally
+{
+myconnection.close();
+}
+
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Connection " + e.getMessage());
+} 
+    
+       
+       
+       
+       
+       
+       
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        try
+{
+Connection myconnection;
+myconnection=DriverManager.getConnection(PATH+PLACE,UNAME,PASS);
+try
+{
+
+String q="select * from stafftable where dob between ? and ?";
+PreparedStatement mystatement=myconnection.prepareStatement(q);
+
+mystatement.setObject(1, bday2.getDate());
+mystatement.setObject(2, bday3.getDate());
+
+ResultSet myresult=mystatement.executeQuery(); 
+DefaultTableModel mymodel=(DefaultTableModel) personal1.getModel();
+mymodel.setRowCount(0); //to clear old data
+if(myresult.next()) //rest code is same as of list of students
+{
+getContentPane().revalidate();
+
+do
+{
+String  name,qualf,phone,gender,dob;
+name=myresult.getString("fname");
+ qualf=myresult.getString("qualf");
+ phone=myresult.getString("phone");
+ gender=myresult.getString("gender");
+ dob=myresult.getString("dob");
+mymodel.addRow(new Object[]{name,qualf,phone,gender,dob});
+
+}
+while(myresult.next());
+}
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error In Query " + e.getMessage());
+}
+finally
+{
+myconnection.close();
+}
+
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Connection " + e.getMessage());
+} 
+
+                                          
+
+       
+       
+       
+       
+       
+       
+       
+       
+       
+
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        
+      
+        int answer=JOptionPane.showConfirmDialog(rootPane, "Do you really want to delete?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+
+if(answer==JOptionPane.YES_OPTION)
+{
+        
+        
+        try
+{ Connection myconnection;
+myconnection=DriverManager.getConnection(PATH+PLACE,UNAME,PASS);
+
+
+try
+{
+String a="delete from studenttable where admno=?";
+PreparedStatement mystatement=myconnection.prepareStatement(a);
+DefaultTableModel mymodel=(DefaultTableModel) personal.getModel();
+
+String u = personal.getValueAt(personal.getSelectedRow(), 0).toString();
+
+mystatement.setString(1,u);
+
+
+if(mystatement.executeUpdate()>0)
+{
+    
+JOptionPane.showMessageDialog(rootPane, "Student Data Deleted Successfully ");
+mymodel.removeRow(personal.getSelectedRow());
+}
+else
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Saving Successfully1 ");
+}
+
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in query1 " + e.getMessage());
+}
+finally
+{
+myconnection.close();
+}
+
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Connection1 " + e.getMessage());
+}
+    }
+         
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+         
+        
+        
+        int answer=JOptionPane.showConfirmDialog(rootPane, "Do you really want to delete?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+
+if(answer==JOptionPane.YES_OPTION)
+{
+        
+        
+        try
+{ Connection myconnection;
+myconnection=DriverManager.getConnection(PATH+PLACE,UNAME,PASS);
+
+
+try
+{
+String a="delete from stafftable where phone=?";
+PreparedStatement mystatement=myconnection.prepareStatement(a);
+DefaultTableModel mymodel=(DefaultTableModel) personal1.getModel();
+
+String un = personal1.getValueAt(personal1.getSelectedRow(), 2).toString();
+
+mystatement.setString(1,un);
+
+
+if(mystatement.executeUpdate()>0)
+{
+    
+JOptionPane.showMessageDialog(rootPane, "Staff Data Deleted Successfully ");
+mymodel.removeRow(personal1.getSelectedRow());
+}
+else
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Saving Successfully1 ");
+}
+
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in query1 " + e.getMessage());
+}
+finally
+{
+myconnection.close();
+}
+
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(rootPane, "Error in Connection1 " + e.getMessage());
+}
+    }
+         
+         
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton adbtn;
+    private com.toedter.calendar.JDateChooser bday;
+    private com.toedter.calendar.JDateChooser bday1;
+    private com.toedter.calendar.JDateChooser bday2;
+    private com.toedter.calendar.JDateChooser bday3;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JTextField classbox;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTabbedPane jTabbedPane3;
+    private javax.swing.JTextField namebox;
+    private javax.swing.JRadioButton nbtn;
+    private javax.swing.JTable personal;
+    private javax.swing.JTable personal1;
+    private javax.swing.JTable school;
+    private javax.swing.JTable school1;
+    private javax.swing.JTextField searchbox;
+    private javax.swing.JTextField sectionbox;
+    private javax.swing.JTextField subjectbox;
+    // End of variables declaration//GEN-END:variables
+
+    private static class myconnect {
+
+        public myconnect() {
+        }
+    }
+}
